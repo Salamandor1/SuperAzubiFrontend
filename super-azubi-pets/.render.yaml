@@ -1,0 +1,8 @@
+staticSites:
+  - name: super-azubi-frontend
+    buildCommand: npm install && npm run build -- --configuration production
+    publishPath: dist/super-azubi-pets
+    redirects:
+      - source: "/*"
+        destination: "/index.html"
+        statusCode: 200
