@@ -8,12 +8,13 @@ import { TeamService } from '../team/team';
 import { TeamAnimalService } from '../teamAnimal/team-animal';
 import { TeamAnimal_Response } from '../teamAnimal/team-animal_data';
 import { ShopService } from '../shop/shop';
+import {environment} from '/workspaces/super-azubi-frontend/super-azubi-pets/src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  private url: string = 'http://localhost:8080/game';
+  private url: string = environment.backendUrl + '/game';
 
   private gameState = new BehaviorSubject<Game | null>(null);
   gameState$ = this.gameState.asObservable();
