@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { animal_response, animal_response_list } from './base-animal_data';
-import {environment} from '/workspaces/super-azubi-frontend/super-azubi-pets/src/environments/environment';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

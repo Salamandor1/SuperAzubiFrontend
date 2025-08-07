@@ -4,7 +4,7 @@ import { TeamAnimal_Response } from './team-animal_data';
 import { HttpClient } from '@angular/common/http';
 import { Team } from '../team/team_data';
 import { TeamAnimal } from '../shop/shop_data';
-import {environment} from '/workspaces/super-azubi-frontend/super-azubi-pets/src/environments/environment';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

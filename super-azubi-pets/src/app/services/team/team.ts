@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { TeamAnimal_Response } from '../teamAnimal/team-animal_data';
 import { Team } from './team_data';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '/workspaces/super-azubi-frontend/super-azubi-pets/src/environments/environment';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

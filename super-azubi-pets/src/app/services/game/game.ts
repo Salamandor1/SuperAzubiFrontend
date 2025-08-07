@@ -8,7 +8,7 @@ import { TeamService } from '../team/team';
 import { TeamAnimalService } from '../teamAnimal/team-animal';
 import { TeamAnimal_Response } from '../teamAnimal/team-animal_data';
 import { ShopService } from '../shop/shop';
-import {environment} from '/workspaces/super-azubi-frontend/super-azubi-pets/src/environments/environment';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
