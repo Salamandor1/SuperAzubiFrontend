@@ -1,0 +1,374 @@
+.shop-buttons {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px 40px 0px;
+}
+
+.shop-buttons button {
+  flex: 1;
+  max-width: 15%;
+}
+
+.header {
+  position: relative;
+  width: 60%;
+  min-width: 500px;
+  max-height: 40px;
+  display: flex;
+  gap: 5px;
+  padding: 5px 5px 60px 5px;
+}
+
+.display {
+  margin: 0 auto;
+  height: 100%;
+  width: 15%;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+}
+
+.gold {
+  border-color: #fef3c7;
+  box-shadow: 0 0 8px #fef3c7;
+}
+
+.hearts {
+  border-color: #fed1c7; 
+  box-shadow: 0 0 8px #fed1c7;
+}
+
+.round {
+  border-color: #f5f5f5; 
+  box-shadow: 0 0 8px #f5f5f5;
+}
+
+.wins {
+  border-color: #c7fef3;
+  box-shadow: 0 0 8px #c7fef3;
+}
+
+.tier {
+  border-color: #fdefb8;
+  box-shadow: 0 0 8px #e4d6a1;
+}
+
+.tier-popup {
+  position: fixed;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fffae6;
+  color: #222;
+  padding: 30px 50px;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 0 15px #ffd700;
+  min-width: 400px; 
+}
+
+
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateX(-50%) scale(0.9); }
+  10%  { opacity: 1; transform: translateX(-50%) scale(1); }
+  90%  { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0.9); }
+}
+
+
+.drag-and-drop-area-team {
+  color: #caffa7;
+  margin-top: 5px;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-left: auto;
+  width: 80%;
+  height: 20%;
+  align-items: center;
+  background-color: #11cf00;
+  border-color: #66ff00;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 12px;
+  padding: 10px 10px;
+  border-radius:  12px;
+  display: flex;
+  box-shadow: 0 0 12px #11cf00;
+  padding-right: 2rem;
+}
+
+.drag-and-drop-area-team-arrow {
+  clip-path: polygon(0 0, 100% 50%, 0% 100%);
+  color: #caffa7;
+  margin-right: auto;
+  width: 0px;
+  height: 110%;
+  align-items: center;
+  background-color: #11cf00;
+  //background-color: #cf0000;
+  border-color: #66ff00;
+  //border-color: #ff0000;
+  border-width: 0px;
+  border-style: solid;
+  border-radius: 12px;
+  //margin: 20px 20px;
+  //padding: 10px 10px;
+  border-radius:  12px;
+  display: flex;
+  box-shadow: 0 0 12px #11cf00;
+  padding-right: 2rem;  
+  transform: translateX(197%);  
+}
+
+.drag-and-drop-field-team {
+  font-weight: lighter;
+  display: flex;
+  color: #caffa7;
+  background-color: #008812;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 10px;
+  padding: 10px 10px;
+  border-radius:  15px;
+  border-color: #66ff00;
+  border-width: 1px;
+  border-radius: 12px;
+  width: 16%;
+  height: 107%;
+  box-shadow: inset 0 0 8px #003e08;
+  white-space: pre;
+}
+
+.drag-and-drop-field-team[draggable="true"] {
+  cursor: grab;
+}
+
+.drag-and-drop-field-team[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+.drag-and-drop-field-team.has-animal {
+  width: 16%;
+  height: 110%;
+  box-shadow: 0 0 22px #000904;
+  background-color: #008812;
+
+  &:hover {
+    box-shadow: 0 0 22px #66ff00;
+  }
+}
+
+.level-twenty {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.drag-and-drop-area-shop {  
+  color: #f0ffad;
+  background-color: #99e303;
+  border-color: #ccff00;
+  box-shadow: 0 0 12px #a8ff00;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-left: auto;
+  width: 80%;
+  height: 20%;
+  align-items: center;  
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 12px;
+  padding: 10px 10px;
+  border-radius:  12px;
+  display: flex;
+  
+}
+
+.drag-and-drop-field-shop {
+  font-weight: lighter;
+  display: flex;
+  color: #f0ffad;
+  background-color: #669900;
+  border-color: #ccff00;
+  box-shadow: inset 0 0 8px #556b2f;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 10px;
+  padding: 10px 10px;
+  border-radius:  15px;  
+  border-width: 1px;
+  border-radius: 12px;
+  width: 16%;
+  height: 107%;
+}
+
+.drag-and-drop-field-shop[draggable="true"] {
+  cursor: grab;
+}
+
+.drag-and-drop-field-shop[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+.drag-and-drop-field-shop.has-animal {
+  width: 16%;
+  height: 110%;
+  box-shadow: 0 0 22px #1a1f00;
+  background-color: #669900;
+
+  &:hover {
+    box-shadow: 0 0 22px #ccff00;
+  }
+}
+
+.drag-and-drop-field-shop.locked {
+  background: radial-gradient(
+    circle,
+    #669900 0%,        
+    #b2e378 70%,        
+    #e9fcb8 85%,        
+    #d0ecfa 100%        
+  );
+  box-shadow:
+    0 0 0 2px #b0e0ff inset,   
+    0 0 10px 4px #7ab6d9 inset, 
+    0 0 15px 8px rgba(163, 213, 247, 0.6); 
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sell-area {
+  margin-right: auto;
+  width: 15%;
+  height: 10%;
+  align-items: center;
+  justify-content: center;
+  background-color: #caffa7;
+  color: #003016;
+  margin: 0px;
+  padding: 0px;
+  border-radius:  20px;
+  display: flex;
+  box-shadow: 0 0 16px #caffa7;
+}
+
+.skill-wrapper {
+  position: relative;
+  display: inline-block;
+
+  .custom-tooltip {
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #222;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    z-index: 100;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+  }
+}
+
+ .with-tooltip {
+  position: relative; /* Für absolute Positionierung des Tooltips */
+  cursor: default;
+}
+
+.with-tooltip .tooltip-text {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 500px;
+  background-color: rgba(0,0,0,0.75);
+  color: white;
+  text-align: middle;
+  border-radius: 10px;
+  padding: 8px 10px;
+  white-space: pre-line;
+
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  transition: opacity 0.3s ease;
+  pointer-events: none !important;
+  z-index: 100;
+}
+
+.with-tooltip:hover .tooltip-text {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.skill-box {
+  display: inline-block;
+  padding: 8px 12px;
+  box-shadow: #003016 0 0 15px;
+  border-radius: 8px;
+  margin-top: 10%;
+}
+
+.skill-box:hover {
+  background-color: #136401;
+}
+
+// Popup overlay (Help Popup)
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+// Popup content (Help Popup)
+.popup-content {
+  background-color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 12px;
+  width: 1000px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+// Close button for the help-popup
+.close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+//Help Popup list
+ol {
+  list-style-position: outside; // List markers outside the content
+  padding-left: 2;              // Padding to align with the content
+  margin-left: 0;               // start on the left side
+  font-size: 30px;
+}
+
+//Help Popup list items
+.help-list li{
+  margin-bottom: 10px; // Space between list items
+}
+
+

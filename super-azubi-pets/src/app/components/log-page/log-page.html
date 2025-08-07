@@ -1,0 +1,24 @@
+<div class="default" *ngIf="gameState$ | async as game">
+  <h1>-- Result --</h1>
+    <div class="header">
+      <div class="display hearts">❤️ {{ game.hearts }}</div>
+      <div class="display wins">🏆 {{ game.wins }} / 10</div>
+  </div>
+  
+
+  <div #logContainer class="log-container">
+    <pre>{{ visibleText }}</pre>
+  </div>
+
+
+  <div class="button-container">
+    <button (click)="skipText()">Skip</button>
+  </div>
+
+  <div class="button-container">
+    <button (click)="continue()">Continue</button>
+    <button routerLink="/confirm" *ngIf="didWin === null">End Game</button>
+  </div>
+</div>
+
+

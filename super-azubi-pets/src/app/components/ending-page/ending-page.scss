@@ -1,0 +1,35 @@
+#joke {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(to bottom, white 20%, deeppink 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      transparent 100%
+    );
+    animation: glitter 2s infinite;
+  }
+}
+
+@keyframes glitter {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 100%;
+  }
+}

@@ -1,0 +1,163 @@
+<div class ="default">
+  
+ <div *ngIf="showTierPopup" class="tier-popup">
+  🎉 New maximum tier reached: {{ getMaxTier((gameState$ | async)?.rounds) }} 🎉 <br>
+  <br>
+  <button (click)="closePopup()">Ok</button>
+</div>
+
+<h2>Move, buy, sell or upgrade your team!</h2>
+ <br>
+
+    <div class="header">
+      <div class="display gold with-tooltip">
+        💰 {{ gold$ | async }}
+        <div class="tooltip-text">Your current amount of gold. You have 10 gold available per round as standard.</div>
+      </div>
+      <div class="display round with-tooltip">
+        ⌛ {{ (gameState$ | async)?.rounds ?? '–' }}
+        <div class="tooltip-text">The current round.</div>
+      </div>
+      <div class="display hearts with-tooltip">
+        ❤️ {{ (gameState$ | async)?.hearts ?? '–' }}
+        <div class="tooltip-text">Your current life. For every battle lost, one life is deducted.</div>
+      </div>
+      <div class="display wins with-tooltip">
+        🏆 {{ (gameState$ | async)?.wins ?? '–' }} / 10
+        <div class="tooltip-text">Your battles won. With 10 battles won, you will receive the overall victory.</div>
+      </div>
+      <div class="display tier with-tooltip">
+        🏅 {{ getMaxTier((gameState$ | async)?.rounds) }}
+        <div class="tooltip-text">The maximum tier of the animals currently appearing in your shop</div>
+      </div>
+    </div>
+
+    <div class="drag-and-drop-area-team">
+      <p style="width: 100px;">Your team:</p>
+      
+        <div 
+          *ngFor="let animal of teamAnimals.slice().reverse(); let i = index"
+          class="drag-and-drop-field-team"
+          [class.has-animal]="animal"
+          [attr.draggable]="animal ? true : null"
+          [attr.data-index]="teamAnimals.length - 1 - i"
+          (drop)="dropHandler($event, teamAnimals.length - 1 - i, 'team')"
+          (dragover)="dragoverHandler($event)"
+          (dragstart)="dragstartHandler($event, teamAnimals.length - 1 - i, 'team')"
+        >
+          <ng-container *ngIf="animal">
+            <p>
+              <span style=
+              "font-size: 5rem;
+              text-shadow:
+                0 0 5px #caffa7,
+                0 0 10px #66ff00,     
+                0 0 15px #11cf00,    
+                0 0 20px #1a4d00;">
+                {{ animal.getEmoji() }}<br></span>
+              
+              <span [ngClass]="{'level-twenty': animal.getHealth() === 50}">❤️{{ animal.getHealth() }}</span>
+              <span style="color: rgba(0, 0, 0, 0);">__</span>
+              <span [ngClass]="{'level-twenty': animal.getAttack() === 50}">🗡️{{ animal.getAttack() }}<br></span>
+              <span [ngClass]="{'level-twenty': animal.getLevel() === 20}">👑{{ animal.getLevel() }}</span>
+              <span style="color: rgba(0, 0, 0, 0);">__</span>
+              <span>🏅{{ animal.getTier() }}</span><br>
+
+              
+              <!-- Tooltip for skill information (Team-Area) -->
+            <span class="with-tooltip skill-box" style="cursor: help;">
+              <span style="font-size: 25px;">Info</span> <br>
+                <div class="tooltip-text">
+                    <span style="font-weight: 1000;">{{ animal.getName() }}:</span>
+                    <br>
+                    {{ getSkillDescription(animal.getSkill()) }}
+                </div>
+            </span>
+            </p>
+          </ng-container>
+        </div>
+
+        <div class="drag-and-drop-area-team-arrow">
+        </div>
+
+    </div>
+
+
+    
+
+    <div class="sell-area with-tooltip" (drop)="dropHandler($event, 0, 'sell')" (dragover)="dragoverHandler($event)">
+      <p>{{ sellFor }}</p>
+      <div class="tooltip-text">Drag animals into this field to sell them.</div>
+    </div>
+
+    
+
+    <div class="drag-and-drop-area-shop">
+      <p style="width: 100px">Shop:<br><br>buy for -3💰</p>
+
+      <div
+        *ngFor="let animal of shopAnimals; let i = index"
+        class="drag-and-drop-field-shop"
+        [class.has-animal]="animal"
+        [class.locked]="animal && animal.isFrozen"
+        [attr.draggable]="animal ? true : null"
+        [attr.data-index]="i"
+        (drop)="dropHandler($event, i, 'shop')"
+        (dragover)="dragoverHandler($event)"
+        (dragstart)="dragstartHandler($event, i, 'shop')"
+        (contextmenu)="toggleIsFrozen(i, $event)"
+      >
+        <ng-container *ngIf="animal">
+          <p>
+            <span style="font-size: 5rem; text-shadow:
+                0 0 5px #caffa7,
+                0 0 10px #66ff00,     
+                0 0 15px #11cf00,    
+                0 0 20px #1a4d00;">
+                {{ animal.emoji }}<br></span>
+            
+            ❤️{{ animal.health }}
+            <span style="color: rgba(0, 0, 0, 0);">_</span>
+            🗡️{{ animal.attack }}<br>
+            🏅{{ animal.tier }}<br>
+
+            
+            <!-- Tooltip for skill information (Shop-Area) -->
+            <span class="with-tooltip skill-box" style="cursor: help;">
+              <span style="font-size: 25px;">Info</span> <br>
+                <div class="tooltip-text">
+                    <span style="font-weight: 1000;">{{ animal.name }}:</span>
+                    <br>
+                    {{ getSkillDescription(animal.skill) }}
+                </div>
+            </span>
+
+          </p>
+        </ng-container>
+        
+      </div>
+
+    </div>
+
+
+    <div class="button-container shop-buttons">      
+        <button (click)="reroll()" [disabled]="currentGold < 1">Reroll (-1💰)</button>
+        <button (click)="help()">Help</button>
+        <button (click)="goToLog()" [disabled]="!doesLogExist()">Show log</button>
+        <button (click)="saveTeamAndStartFight()">Start fight</button>
+        <!-- <button (click)="getMaximumGold()">TEST BUTTON</button> -->
+    </div>
+</div>
+<div class="popup" *ngIf="showHelpPopup">
+  <div class="popup-content">
+    <span class="close" (click)="closeHelp()">&times;</span>
+    <p>
+      <ol class="help-list">
+        <li>Right-click on a shop animal to freeze it and save it for the next round.</li>
+        <li>Drag animals from the shop to the upper fields to set them up for your team.</li>
+        <li>You can sell animals for gold. You receive 1 gold per stacked animal.</li>
+        <li>By default, you receive 10 gold per round. Gold that you do not spend will not be saved for the next round.</li>
+        <li>Start the battle when your team is ready or you have no gold left.</li>
+      </ol>
+  </div>
+</div>
