@@ -9,7 +9,7 @@ import {environment} from '/workspaces/super-azubi-frontend/super-azubi-pets/src
   providedIn: 'root'
 })
 export class TeamService {
-  private url: string = environment.backendUrl + '/playerteam';;
+  private url: string = environment.backendUrl + '/playerteam';
 
   private teamState = new BehaviorSubject<Team | null>(null);
   teamState$ = this.teamState.asObservable();
@@ -17,7 +17,7 @@ export class TeamService {
   constructor(private http: HttpClient) {}
 
   getTeamByID(id: number): Observable<Team> {
-    return this.http.get<Team>(this.url + id);
+    return this.http.get<Team>(environment.backendUrl + '/playerteam/' + id);
   }
   
 }

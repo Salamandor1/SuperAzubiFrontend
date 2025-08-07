@@ -61,7 +61,7 @@ export class GameService {
   }
 
   fetchGameById(id: number) {
-    return this.http.get<Game>(`http://localhost:8080/game/${id}`);
+    return this.http.get<Game>(`${environment.backendUrl}/game/${id}`);
   }
 
   saveTeam() {

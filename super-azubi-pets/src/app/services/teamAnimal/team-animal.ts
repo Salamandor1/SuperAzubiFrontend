@@ -10,7 +10,7 @@ import {environment} from '/workspaces/super-azubi-frontend/super-azubi-pets/src
   providedIn: 'root'
 })
 export class TeamAnimalService {
-  private url: string = environment.backendUrl + '/teamanimal';;
+  private url: string = environment.backendUrl + '/teamanimal/';;
 
   private teamAnimalState = new BehaviorSubject<TeamAnimal_Response | null>(null);
   teamAnimalState$ = this.teamAnimalState.asObservable();

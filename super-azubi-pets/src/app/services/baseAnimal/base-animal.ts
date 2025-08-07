@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { animal_response, animal_response_list } from './base-animal_data';
+import {environment} from '/workspaces/super-azubi-frontend/super-azubi-pets/src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnimalService {
-  private url: string = 'http://localhost:8080/animals';
+  private url: string = environment.backendUrl + '/animals';
 
   private animalState = new BehaviorSubject<animal_response | null>(null);
   animalState$ = this.animalState.asObservable();
@@ -15,11 +16,11 @@ export class AnimalService {
   constructor(private http: HttpClient) {}
 
   getRandomAnimals(round: number, count: number): Observable<animal_response_list> {
-    return this.http.get<animal_response_list>(this.url + '/random/' + round + "/" + count);
+    return this.http.get<animal_response_list>(environment.backendUrl + '/animals' + '/random/' + round + "/" + count);
   }
 
   getAnimalByID(name: string): Observable<animal_response> { 
-    return this.http.get<animal_response>(this.url + '/' + name);
+    return this.http.get<animal_response>(environment.backendUrl + '/animals' + '/' + name);
   }
   
 }
