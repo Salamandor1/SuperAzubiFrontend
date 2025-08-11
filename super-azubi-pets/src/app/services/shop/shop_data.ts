@@ -1,5 +1,3 @@
-import { timeStamp } from "console";
-import { TeamAnimal_Response } from "../teamAnimal/team-animal_data";
 
 export class TeamAnimal {
 

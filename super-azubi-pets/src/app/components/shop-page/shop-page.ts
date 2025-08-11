@@ -8,9 +8,6 @@ import { Fight } from '../../services/fight/fight';
 import { ShopService } from '../../services/shop/shop';
 import { Game } from '../../services/game/game_data';
 import { ShopAnimal, TeamAnimal } from '../../services/shop/shop_data';
-import { log } from 'console';
-import { ParsedEvent } from '@angular/compiler';
-import { parse } from 'path';
 
 @Component({
   selector: 'app-shop-page',
