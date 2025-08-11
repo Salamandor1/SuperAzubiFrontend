@@ -16,7 +16,7 @@ export class AnimalService {
   constructor(private http: HttpClient) {}
 
   getRandomAnimals(round: number, count: number): Observable<animal_response_list> {
-    return this.http.get<animal_response_list>(environment.backendUrl + '/animals' + '/random/' + round + "/" + count);
+    return this.http.get<animal_response_list>(environment.backendUrl + '/animals' + '/random' + "/" + round + "/" + count);
   }
 
   getAnimalByID(name: string): Observable<animal_response> { 
