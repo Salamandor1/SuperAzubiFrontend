@@ -14,6 +14,26 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
+
+        "server": {
+  "builder": "@angular-devkit/build-angular:server",
+  "options": {
+    "outputPath": "dist/super-azubi-pets/server",
+    "main": "src/main.server.ts",
+    "tsConfig": "tsconfig.server.json"
+  },
+    "configurations": {
+      "production": {
+        "fileReplacements": [
+          {
+            "replace": "src/environments/environment.ts",
+            "with": "src/environments/environments.prod.ts"
+          }
+        ]
+      }
+    }
+  },
+
         "build": {
           "builder": "@angular/build:application",
           "options": {
