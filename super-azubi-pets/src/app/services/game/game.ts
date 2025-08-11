@@ -14,7 +14,7 @@ import {environment} from '../../../environments/environment';
   providedIn: 'root'
 })
 export class GameService {
-  private url: string = environment.backendUrl + 'game';
+  private url: string = environment.backendUrl + '/game';
 
   private gameState = new BehaviorSubject<Game | null>(null);
   gameState$ = this.gameState.asObservable();
