@@ -61,7 +61,7 @@ export class GameService {
   }
 
   fetchGameById(id: number) {
-    return this.http.get<Game>(`${environment.backendUrl}/game/${id}`);
+    return this.http.get<Game>(environment.backendUrl + "/game" + "/" + id);
   }
 
   saveTeam() {
@@ -95,7 +95,7 @@ export class GameService {
 
     const body = { teamDTO };
 
-    return this.http.put(`${this.url}/${gameID}`, body);
+    return this.http.put(environment.backendUrl + "/game" + "/" + gameID, body);
   }
 
   setGame(game: Game) {

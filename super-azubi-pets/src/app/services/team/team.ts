@@ -17,7 +17,7 @@ export class TeamService {
   constructor(private http: HttpClient) {}
 
   getTeamByID(id: number): Observable<Team> {
-    return this.http.get<Team>(environment.backendUrl + '/playerteam/' + id);
+    return this.http.get<Team>(environment.backendUrl + '/playerteam' + "/" + id);
   }
   
 }
