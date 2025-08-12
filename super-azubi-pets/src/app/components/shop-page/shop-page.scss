@@ -38,12 +38,12 @@
 }
 
 .hearts {
-  border-color: #fed1c7; 
+  border-color: #fed1c7;
   box-shadow: 0 0 8px #fed1c7;
 }
 
 .round {
-  border-color: #f5f5f5; 
+  border-color: #f5f5f5;
   box-shadow: 0 0 8px #f5f5f5;
 }
 
@@ -71,7 +71,7 @@
   font-weight: bold;
   z-index: 1000;
   box-shadow: 0 0 15px #ffd700;
-  min-width: 400px; 
+  min-width: 400px;
 }
 
 
@@ -123,8 +123,8 @@
   border-radius:  12px;
   display: flex;
   box-shadow: 0 0 12px #11cf00;
-  padding-right: 2rem;  
-  transform: translateX(197%);  
+  padding-right: 2rem;
+  transform: translateX(197%);
 }
 
 .drag-and-drop-field-team {
@@ -170,7 +170,7 @@
   font-weight: bold;
 }
 
-.drag-and-drop-area-shop {  
+.drag-and-drop-area-shop {
   color: #f0ffad;
   background-color: #99e303;
   border-color: #ccff00;
@@ -181,14 +181,14 @@
   margin-left: auto;
   width: 80%;
   height: 20%;
-  align-items: center;  
+  align-items: center;
   border-width: 1px;
   border-style: solid;
   border-radius: 12px;
   padding: 10px 10px;
   border-radius:  12px;
   display: flex;
-  
+
 }
 
 .drag-and-drop-field-shop {
@@ -202,7 +202,7 @@
   justify-content: center;
   margin: 0px 10px;
   padding: 10px 10px;
-  border-radius:  15px;  
+  border-radius:  15px;
   border-width: 1px;
   border-radius: 12px;
   width: 16%;
@@ -231,15 +231,15 @@
 .drag-and-drop-field-shop.locked {
   background: radial-gradient(
     circle,
-    #669900 0%,        
-    #b2e378 70%,        
-    #e9fcb8 85%,        
-    #d0ecfa 100%        
+    #669900 0%,
+    #b2e378 70%,
+    #e9fcb8 85%,
+    #d0ecfa 100%
   );
   box-shadow:
-    0 0 0 2px #b0e0ff inset,   
-    0 0 10px 4px #7ab6d9 inset, 
-    0 0 15px 8px rgba(163, 213, 247, 0.6); 
+    0 0 0 2px #b0e0ff inset,
+    0 0 10px 4px #7ab6d9 inset,
+    0 0 15px 8px rgba(163, 213, 247, 0.6);
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -264,7 +264,7 @@
 
   .custom-tooltip {
     position: absolute;
-    top: 100%; 
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     background-color: #222;
@@ -299,7 +299,7 @@
   top: 120%;
   left: 50%;
   transform: translateX(-50%);
-  
+
   transition: opacity 0.3s ease;
   pointer-events: none !important;
   z-index: 100;
@@ -369,6 +369,16 @@ ol {
 //Help Popup list items
 .help-list li{
   margin-bottom: 10px; // Space between list items
+}
+
+/** * Unselectable class to prevent text selection
+ * This is useful for headers or other elements where you want to prevent user selection
+ */
+.unselectable {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;         /* Standard */
 }
 
 
