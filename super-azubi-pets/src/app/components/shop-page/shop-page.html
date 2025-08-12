@@ -1,6 +1,6 @@
-<div class ="default">
-  
- <div *ngIf="showTierPopup" class="tier-popup">
+<div class ="default unselectable">
+
+ <div *ngIf="showTierPopup" class="tier-popup unselectable">
   🎉 New maximum tier reached: {{ getMaxTier((gameState$ | async)?.rounds) }} 🎉 <br>
   <br>
   <button (click)="closePopup()">Ok</button>
@@ -9,33 +9,33 @@
 <h2>Move, buy, sell or upgrade your team!</h2>
  <br>
 
-    <div class="header">
+    <div class="header unselectable">
       <div class="display gold with-tooltip">
         💰 {{ gold$ | async }}
         <div class="tooltip-text">Your current amount of gold. You have 10 gold available per round as standard.</div>
       </div>
-      <div class="display round with-tooltip">
+      <div class="display round with-tooltip unselectable">
         ⌛ {{ (gameState$ | async)?.rounds ?? '–' }}
         <div class="tooltip-text">The current round.</div>
       </div>
-      <div class="display hearts with-tooltip">
+      <div class="display hearts with-tooltip unselectable">
         ❤️ {{ (gameState$ | async)?.hearts ?? '–' }}
         <div class="tooltip-text">Your current life. For every battle lost, one life is deducted.</div>
       </div>
-      <div class="display wins with-tooltip">
+      <div class="display wins with-tooltip unselectable">
         🏆 {{ (gameState$ | async)?.wins ?? '–' }} / 10
         <div class="tooltip-text">Your battles won. With 10 battles won, you will receive the overall victory.</div>
       </div>
-      <div class="display tier with-tooltip">
+      <div class="display tier with-tooltip unselectable">
         🏅 {{ getMaxTier((gameState$ | async)?.rounds) }}
-        <div class="tooltip-text">The maximum tier of the animals currently appearing in your shop</div>
+        <div class="tooltip-text unselectable">The maximum tier of the animals currently appearing in your shop</div>
       </div>
     </div>
 
-    <div class="drag-and-drop-area-team">
+    <div class="drag-and-drop-area-team unselectable">
       <p style="width: 100px;">Your team:</p>
-      
-        <div 
+
+        <div
           *ngFor="let animal of teamAnimals.slice().reverse(); let i = index"
           class="drag-and-drop-field-team"
           [class.has-animal]="animal"
@@ -51,11 +51,11 @@
               "font-size: 5rem;
               text-shadow:
                 0 0 5px #caffa7,
-                0 0 10px #66ff00,     
-                0 0 15px #11cf00,    
+                0 0 10px #66ff00,
+                0 0 15px #11cf00,
                 0 0 20px #1a4d00;">
                 {{ animal.getEmoji() }}<br></span>
-              
+
               <span [ngClass]="{'level-twenty': animal.getHealth() === 50}">❤️{{ animal.getHealth() }}</span>
               <span style="color: rgba(0, 0, 0, 0);">__</span>
               <span [ngClass]="{'level-twenty': animal.getAttack() === 50}">🗡️{{ animal.getAttack() }}<br></span>
@@ -63,9 +63,9 @@
               <span style="color: rgba(0, 0, 0, 0);">__</span>
               <span>🏅{{ animal.getTier() }}</span><br>
 
-              
+
               <!-- Tooltip for skill information (Team-Area) -->
-            <span class="with-tooltip skill-box" style="cursor: help;">
+            <span class="with-tooltip skill-box unselectable" style="cursor: help;">
               <span style="font-size: 25px;">Info</span> <br>
                 <div class="tooltip-text">
                     <span style="font-weight: 1000;">{{ animal.getName() }}:</span>
@@ -83,16 +83,16 @@
     </div>
 
 
-    
+
 
     <div class="sell-area with-tooltip" (drop)="dropHandler($event, 0, 'sell')" (dragover)="dragoverHandler($event)">
       <p>{{ sellFor }}</p>
-      <div class="tooltip-text">Drag animals into this field to sell them.</div>
+      <div class="tooltip-text unselectable">Drag animals into this field to sell them.</div>
     </div>
 
-    
 
-    <div class="drag-and-drop-area-shop">
+
+    <div class="drag-and-drop-area-shop unselectable">
       <p style="width: 100px">Shop:<br><br>buy for -3💰</p>
 
       <div
@@ -111,19 +111,19 @@
           <p>
             <span style="font-size: 5rem; text-shadow:
                 0 0 5px #caffa7,
-                0 0 10px #66ff00,     
-                0 0 15px #11cf00,    
+                0 0 10px #66ff00,
+                0 0 15px #11cf00,
                 0 0 20px #1a4d00;">
                 {{ animal.emoji }}<br></span>
-            
+
             ❤️{{ animal.health }}
             <span style="color: rgba(0, 0, 0, 0);">_</span>
             🗡️{{ animal.attack }}<br>
             🏅{{ animal.tier }}<br>
 
-            
+
             <!-- Tooltip for skill information (Shop-Area) -->
-            <span class="with-tooltip skill-box" style="cursor: help;">
+            <span class="with-tooltip skill-box unselectable" style="cursor: help;">
               <span style="font-size: 25px;">Info</span> <br>
                 <div class="tooltip-text">
                     <span style="font-weight: 1000;">{{ animal.name }}:</span>
@@ -134,13 +134,13 @@
 
           </p>
         </ng-container>
-        
+
       </div>
 
     </div>
 
 
-    <div class="button-container shop-buttons">      
+    <div class="button-container shop-buttons unselectable">
         <button (click)="reroll()" [disabled]="currentGold < 1">Reroll (-1💰)</button>
         <button (click)="help()">Help</button>
         <button (click)="goToLog()" [disabled]="!doesLogExist()">Show log</button>
@@ -152,7 +152,7 @@
   <div class="popup-content">
     <span class="close" (click)="closeHelp()">&times;</span>
     <p>
-      <ol class="help-list">
+      <ol class="help-list unselectable">
         <li>Right-click on a shop animal to freeze it and save it for the next round.</li>
         <li>Drag animals from the shop to the upper fields to set them up for your team.</li>
         <li>You can sell animals for gold. You receive 1 gold per stacked animal.</li>

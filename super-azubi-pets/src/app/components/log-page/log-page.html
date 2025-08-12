@@ -1,21 +1,21 @@
-<div class="default" *ngIf="gameState$ | async as game">
+<div class="default unselectable" *ngIf="gameState$ | async as game">
   <h1>-- Result --</h1>
-    <div class="header">
+    <div class="header unselectable">
       <div class="display hearts">❤️ {{ game.hearts }}</div>
       <div class="display wins">🏆 {{ game.wins }} / 10</div>
   </div>
-  
+
 
   <div #logContainer class="log-container">
     <pre>{{ visibleText }}</pre>
   </div>
 
 
-  <div class="button-container">
+  <div class="button-container unselectable">
     <button (click)="skipText()">Skip</button>
   </div>
 
-  <div class="button-container">
+  <div class="button-container unselectable">
     <button (click)="continue()">Continue</button>
     <button routerLink="/confirm" *ngIf="didWin === null">End Game</button>
   </div>
